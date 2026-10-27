@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover electronics, fashion, home essentials, and more at ShopSphere.">
+  <meta name="theme-color" content="#131921">
+  <title>ShopSphere | Online Shopping</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="top-bar">
+      <a href="#" class="logo" aria-label="ShopSphere home">
+        <span class="logo-main">shop<span>sphere</span></span>
+        <span class="logo-tagline">Everything, delivered.</span>
+      </a>
+      <div class="delivery-info">
+        <span class="delivery-icon" aria-hidden="true">⌖</span>
+        <div><span class="muted-label">Deliver to</span><strong>United States</strong></div>
+      </div>
+      <form class="search-form" id="searchForm" role="search">
+        <label class="sr-only" for="searchInput">Search products</label>
+        <select id="categorySelect" aria-label="Search category">
+          <option value="all">All</option><option value="Electronics">Electronics</option>
+          <option value="Fashion">Fashion</option><option value="Home">Home</option>
+          <option value="Lifestyle">Lifestyle</option>
+        </select>
+        <input type="search" id="searchInput" placeholder="Search ShopSphere..." autocomplete="off">
+        <button type="submit" class="search-button" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"></circle><path d="m16 16 4.5 4.5"></path></svg>
+        </button>
+      </form>
+      <div class="account-info"><span class="muted-label">Welcome, shopper</span><strong>Your account</strong></div>
+      <button class="cart-button" id="cartButton" type="button" aria-label="View shopping cart, 0 items">
+        <span class="cart-icon" aria-hidden="true">🛒</span><span class="cart-count" id="cartCount">0</span><span class="cart-text">Cart</span>
+      </button>
+    </div>
+    <nav class="category-nav" aria-label="Main categories">
+      <button type="button" class="nav-link active" data-category="all">All Products</button>
+      <button type="button" class="nav-link" data-category="Electronics">Electronics</button>
+      <button type="button" class="nav-link" data-category="Fashion">Fashion</button>
+      <button type="button" class="nav-link" data-category="Home">Home &amp; Kitchen</button>
+      <button type="button" class="nav-link" data-category="Lifestyle">Lifestyle</button>
+      <span class="nav-promo">Discover something great today</span>
+    </nav>
+  </header>
+
+  <main class="page-container">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-content">
+        <span class="eyebrow">THE EVERYDAY SHOPPING DESTINATION</span>
+        <h1 id="heroTitle">Good finds.<br>Great everyday prices.</h1>
+        <p>Explore handpicked essentials for your tech, style, and home.</p>
+        <a href="#productsSection" class="hero-cta">Explore products <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-decoration" aria-hidden="true">
+        <div class="hero-circle circle-one"></div><div class="hero-circle circle-two"></div>
+        <div class="hero-product">✦</div>
+        <span class="hero-floating float-one">TECH</span><span class="hero-floating float-two">STYLE</span><span class="hero-floating float-three">HOME</span>
+      </div>
+    </section>
+
+    <section class="benefits" aria-label="Shopping benefits">
+      <div class="benefit"><span class="benefit-icon" aria-hidden="true">🚚</span><div><strong>Free shipping</strong><span>On orders over $50</span></div></div>
+      <div class="benefit"><span class="benefit-icon" aria-hidden="true">↩</span><div><strong>Easy returns</strong><span>Hassle-free shopping</span></div></div>
+      <div class="benefit"><span class="benefit-icon" aria-hidden="true">🔒</span><div><strong>Secure checkout</strong><span>Your data stays protected</span></div></div>
+    </section>
+
+    <section id="productsSection" class="products-section">
+      <div class="section-heading">
+        <div><span class="eyebrow">CURATED FOR YOU</span><h2>Explore our products</h2><p class="results-count" id="resultsCount" aria-live="polite">Loading products...</p></div>
+        <div class="sort-control"><label for="sortSelect">Sort by</label>
+          <select id="sortSelect">
+            <option value="featured">Featured</option><option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option><option value="rating">Customer Rating</option>
+          </select>
+        </div>
+      </div>
+      <div class="active-filters" id="activeFilters"></div>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        <span class="empty-icon" aria-hidden="true">⌕</span><h3>No products found</h3>
+        <p>Try another search term or choose a different category.</p>
+        <button type="button" class="primary-button" id="clearFiltersButton">Clear filters</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand"><a href="#" class="logo footer-logo" aria-label="ShopSphere home"><span class="logo-main">shop<span>sphere</span></span></a>
+        <p>Your everyday destination for useful finds, thoughtful gifts, and better living.</p>
+      </div>
+      <div class="footer-column"><h3>Shop</h3><a href="#productsSection" data-footer-category="all">All products</a><a href="#productsSection" data-footer-category="Electronics">Electronics</a><a href="#productsSection" data-footer-category="Fashion">Fashion</a><a href="#productsSection" data-footer-category="Home">Home &amp; Kitchen</a></div>
+      <div class="footer-column"><h3>Customer care</h3><a href="#productsSection">Shipping information</a><a href="#productsSection">Returns &amp; refunds</a><a href="mailto:support@example.com">Contact support</a></div>
+      <div class="footer-column"><h3>Stay in the loop</h3><p>Discover new arrivals and everyday essentials.</p>
+        <form class="newsletter-form" id="newsletterForm"><label class="sr-only" for="newsletterEmail">Email address</label><input type="email" id="newsletterEmail" placeholder="Your email address" required><button type="submit">Join</button></form>
+        <p class="newsletter-message" id="newsletterMessage" aria-live="polite"></p>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="currentYear"></span> ShopSphere. All rights reserved.</p><p class="footer-note">A demo storefront. Orders and payments are not processed.</p></div>
+  </footer>
+
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-labelledby="cartTitle" aria-hidden="true" inert>
+    <div class="drawer-header"><div><h2 id="cartTitle">Your cart</h2><p id="cartSubtitle">Your picks, all in one place.</p></div><button class="icon-button" type="button" id="closeCartButton" aria-label="Close cart">✕</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-empty" id="cartEmpty"><span aria-hidden="true">🛍️</span><h3>Your cart is empty</h3><p>Find something you'll love.</p><button type="button" class="primary-button" id="continueShoppingButton">Continue shopping</button></div>
+    <div class="cart-summary" id="cartSummary" hidden><div class="summary-row"><span>Subtotal</span><strong id="cartSubtotal">$0.00</strong></div><p>Shipping and taxes calculated at checkout.</p><button type="button" class="primary-button checkout-button" id="checkoutButton">Proceed to checkout</button><p class="demo-notice">Demo only — no payment will be collected.</p></div>
+  </aside>
+
+  <dialog class="quick-view-dialog" id="quickViewDialog"><button type="button" class="dialog-close icon-button" id="closeQuickViewButton" aria-label="Close product details">✕</button><div id="quickViewContent"></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
